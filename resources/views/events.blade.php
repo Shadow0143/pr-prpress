@@ -9,8 +9,8 @@
 <div class="event_banner">
     <div class="container">
         <div class="event_text">
-            <a href="./index.html">Home</a>
-            <a href="./events.html" class="event_btn">Events</a>
+            <a href="{{url('/')}}">Home</a>
+            <a href="#" class="event_btn">Events</a>
         </div>
         <div class="event_box">
             <a href="{{route('createEvent')}}"><i class="fa fa-plus" aria-hidden="true"></i> Create Event</a>

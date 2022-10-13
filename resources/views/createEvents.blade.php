@@ -63,6 +63,12 @@
                 <input type="text" name="location" id="location" class="form-control" placeholder="Location">
             </div>
             <div class="form-group">
+                <label for="lat"> Latitude</label>
+                <input type="text" name="lat" id="lat" class="form-control" placeholder="Latitude">
+                <label for="longi"> Longitude</label>
+                <input type="text" name="longi" id="longi" class="form-control" placeholder="Longitude">
+            </div>
+            <div class="form-group">
                 <button type="submit" class="btn btn-outline-primary">Save</button>
             </div>
         </form>

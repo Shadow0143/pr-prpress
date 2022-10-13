@@ -12,8 +12,8 @@
 <div class="event_banner">
     <div class="container">
         <div class="event_text">
-            <a href="./index.html">Home</a>
-            <a href="./events.html" class="event_btn">Event</a>
+            <a href="{{url('/')}}">Home</a>
+            <a href="#" class="event_btn">Events</a>
         </div>
     </div>
 </div>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="get">
                     <div class="ge_section">
-                        <i class="far fa-compass"></i> Delhi
+                        <i class="far fa-compass"></i> {{ucfirst($eventDetail->location)}}
                     </div>
                     <a href="#">Get Directions </a>
                 </div>
@@ -128,10 +128,17 @@
             </div>
             <div class="event_item">
                 <h6>Event location</h6>
-                <iframe
+                {{-- <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d897385.3151233722!2d77.208985!3d28.527352!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x717971125923e5d!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1665405611188!5m2!1sen!2sin"
                     width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
+
+                <iframe
+                    src="https://www.google.com/maps?q={{$eventDetail->latitude}},{{$eventDetail->longitude}}&hl=en&z=14&amp;output=embed"
+                    width="250" height="150" referrerpolicy="no-referrer-when-downgrade" allowfullscreen="yes"
+                    loading="lazy">
+                </iframe>
+
                 <h5>Social media:</h5>
                 <ul>
                     <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
@@ -144,13 +151,18 @@
             <div class="invite">
                 <h6>Invite your friend</h6>
                 <p>Know someone who might be interested in attending? Let them know by sharing this event.</p>
-                <a href="{{url()->current()}}" target="_blank"><i class="fas fa-external-link-alt"></i>
-                    {{url()->current()}}</a>
+                {{-- <a href="javaScript:void(0);" onclick="copyToClipboard()"><i class="fas fa-external-link-alt"></i>
+                    {{url()->current()}}</a> --}}
+                <span style="font-size:10px; padding-left:24px;">Click to copy: </span>
+                <input type="text" name="copyurl" id="copyurl" value="{{url()->current()}}"
+                    style="border: none;font-size:10px; width:195px;padding-left: 10px;color:blue;outline:none"
+                    onclick="copyToClipboard()" readonly>
             </div>
         </div>
     </div>
 </div>
 
+<div id="custom-target"></div>
 
 
 @endsection
@@ -190,4 +202,20 @@
       }
     }, 1000);
 </script>
+
+<script>
+    function copyToClipboard() {
+       
+        var copy =$('#copyurl');
+        var copy =$('#copyurl').css('border','none');
+        copy.select();
+        document.execCommand('copy');
+
+        alert('copied!');
+
+
+    }
+</script>
+
+
 @endsection

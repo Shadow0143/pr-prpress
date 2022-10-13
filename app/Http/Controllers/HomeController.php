@@ -71,6 +71,7 @@ class HomeController extends Controller
 
     public function submitEvent(Request $request)
     {
+        // dd($request->all());
         $event = new Events();
         $event->created_by = Auth::user()->id;
         $event->title = $request->title;
@@ -80,6 +81,8 @@ class HomeController extends Controller
         $event->start_date = $request->start_date;
         $event->end_date = $request->end_date;
         $event->location = $request->location;
+        $event->latitude = $request->lat;
+        $event->longitude = $request->longi;
         $event->save();
         Alert::success('Success', 'Event is added');
         return redirect()->route('events');

@@ -541,6 +541,11 @@ a {
     opacity: 1;
 }
 
+.loader img {
+    height: 35px;
+    margin-left: 645px;
+}
+
 
 /*----------------event-details-----------------*/
 

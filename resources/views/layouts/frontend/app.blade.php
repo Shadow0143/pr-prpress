@@ -23,16 +23,19 @@
 </head>
 
 <body>
+
     @include('sweetalert::alert')
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     @include('layouts.frontend.header')
+    <div class="loader">
+        <img src="{{asset('assets/image/logo.svg')}}" alt="Commsclub-loader">
+    </div>
     @yield('content')
     @include('layouts.frontend.footer')
 </body>
 
 <!-------------------------js---------------->
-<script src="{{asset('assets/js/jquery-3.2.1.slim.min.js')}}"></script>
-{{-- <script src="{{asset('assets/js/popper.min.js')}}"></script> --}}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/a076d05399.js')}}"></script>
 
@@ -40,6 +43,7 @@
 
 <script>
     $(document).ready(function () {
+        $('.loader').hide();
         $('.dropdown-toggle').dropdown();
     });
 

@@ -19,10 +19,16 @@
 </div>
 <!-------------------------event-section-------------------->
 <div class="container">
-    <div class="row">
-
+    <div class="col-12 mt-2">
+        <a href="javaScript:void(0);" class="btn btn-outline-danger  filterevent" data-type="product_lounch">Product
+            Lounch</a>
+        <a href="javaScript:void(0);" class="btn btn-outline-danger  filterevent" data-type="conference">Press
+            Confrence</a>
+        <a href="javaScript:void(0);" class="btn btn-outline-danger  filterevent" data-type="seminar">Seminar</a>
+        <a href="javaScript:void(0);" class="btn btn-outline-danger  filterevent" data-type="other">Other</a>
+    </div>
+    <div class="row filterResult">
         @foreach ($event as $val)
-
         <div class="col-md-12 col-sm-12">
             <div class="event_section">
                 <div class="event_img">
@@ -50,16 +56,7 @@
                 </div>
             </div>
         </div>
-
         @endforeach
-
-
-
-
-
-
-
-
     </div>
 </div>
 
@@ -69,5 +66,21 @@
 @endsection
 
 @section('js')
+<script>
+    $('.filterevent').on('click',function(){
+    var type = $(this).data('type');
+    $('.loader').show();
+    $.ajax({
+        url:'{{route('eventFilter')}}',
+        type:'GET',
+        data:{type:type},
+        success:function(data){
+           $('.filterResult').html(data);
+            $('.loader').hide();
+
+        }
+    })
+});
+</script>
 
 @endsection

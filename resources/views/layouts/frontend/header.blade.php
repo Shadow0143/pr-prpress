@@ -15,10 +15,13 @@
                     <a class="nav-link" href="{{route('events')}}">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="{{route('social')}}">Social</a>
+                    <a class="nav-link " href="{{route('social')}}">Social</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="{{route('members')}}">Members</a>
+                    <a class="nav-link " href="{{route('members')}}">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{route('jobs')}}">Jobs</a>
                 </li>
 
 

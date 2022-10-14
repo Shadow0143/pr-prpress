@@ -35,5 +35,11 @@ Route::get('/event-filter', [App\Http\Controllers\EventController::class, 'event
 
 
 
+Route::get('/jobs', [App\Http\Controllers\JobController::class, 'jobs'])->name('jobs');
+Route::get('/create-jobs', [App\Http\Controllers\JobController::class, 'createJobs'])->name('createJobs');
+
+
+
+
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
 Route::post('/submit-profile', [App\Http\Controllers\ProfileController::class, 'submitProfile'])->name('submitProfile');
